@@ -3,7 +3,7 @@ import logging
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-@app.route(route="blobstorage")
+@app.route(route="HttpExample")
 @app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
 def HttpExample(req: func.HttpRequest, msg: func.Out [func.QueueMessage]) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
